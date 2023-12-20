@@ -1,0 +1,17 @@
+<div class="page">
+  <div class="login-modal">
+    <div class="title">Login</div>
+    <form class="login-form" (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+      <div>
+        <input placeholder="Username" formControlName="username" required type="text">
+        <div class="err" *ngIf="(loginForm?.get('username')?.hasError('required')) && loginForm?.get('username')?.touched">Username Required</div>
+        <div class="err" *ngIf="(loginForm?.get('username')?.hasError('minlength')) && loginForm?.get('username')?.touched && loginForm?.get('username')?.dirty">Invalid Username</div>
+      </div>
+      <div>
+        <input placeholder="Password" formControlName="password" required type="password">
+        <div class="err" *ngIf="(loginForm?.get('password')?.hasError('required')) && loginForm?.get('password')?.touched">Password Required</div>
+      </div>
+      <button class="login-button" [ngClass]="{'disabled': loginForm.invalid}" [disabled]="loginForm.invalid" type="submit">Login</button>
+    </form>
+  </div>
+</div>

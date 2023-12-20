@@ -1,0 +1,17 @@
+.page{
+  margin: 60px;
+  max-height: 100%;
+}
+.table-wrapper{
+  height: fit-content;
+  max-height: 500px;
+  overflow: auto;
+}
+.item-img{
+  width: 100px;
+  height: 100px;
+}
+.wrapper{
+  height: fit-content;
+  width: 100%;
+}
