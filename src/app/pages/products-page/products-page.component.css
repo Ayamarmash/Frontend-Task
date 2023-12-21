@@ -3,6 +3,10 @@
   height: 82%;
 }
 
+th{
+  font-size: 1.2em !important;
+}
+
 .table-wrapper{
   height: 382px;
   overflow: auto;

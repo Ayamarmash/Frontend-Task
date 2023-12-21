@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
 import {ApiService} from "../../api/api.service";
-import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-add-product-page',

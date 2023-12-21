@@ -8,6 +8,7 @@ body, html {
   height: 100%;
   width: 100%;
   font-size: calc(0.6vw + 1.2vh);
+  background-color: #E5EAF9;
 }
 
 h1{
@@ -52,4 +53,18 @@ label{
     font-weight: 500;
     color: #0F1730;
   }
+}
+
+input:focus{
+  border: 1px solid #2B78AE;
+  outline: none !important;
+}
+
+.err{
+  color: #ff7b7b;
+  font-size: 0.7em;
+  margin-top: 10px;
+  box-sizing: border-box;
+  width: fit-content;
+  height: fit-content;
 }
