@@ -1,5 +1,5 @@
 <div class="page">
-  <h1>Hello {{username}}</h1>
+  <h1>Welcome, {{username}}</h1>
   <div class="wrapper">
     <div class="table-wrapper">
       <table mat-table [dataSource]="productsToShow">
@@ -30,5 +30,5 @@
                    class="paginator">
   </mat-paginator>
   </div>
-  <button class="new-product-button" routerLink="/main/new-product" [disabled]="isLoading" [ngClass]="{'disabled-button':isLoading}">New Product</button>
+  <button class="new-product-button" routerLink="/main/new-product">New Product</button>
 </div>
