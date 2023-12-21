@@ -4,8 +4,10 @@ import {PageEvent} from "@angular/material/paginator";
 import {product} from "../../models/product.model";
 import {Store} from "@ngrx/store";
 import {store} from "../../models/store.model";
-import {load, setProducts} from "../../shared/store/actions";
+import {setProducts} from "../../shared/store/actions";
 import {Subscription} from "rxjs";
+import {MatSnackBar} from '@angular/material/snack-bar';
+
 @Component({
   selector: 'app-products-page',
   templateUrl: './products-page.component.html',
@@ -21,15 +23,15 @@ export class ProductsPageComponent implements OnInit, OnDestroy{
   pageSize = 5;
   pageSizeOptions = [5, 10, 13];
   isLoading = false ;
-
+  username = "";
   constructor(private service: ApiService, private store: Store<{States: store}>) {}
 
   ngOnInit(){
     // Subscribe to get the products whenever it's value changes in the store
     this.storeSubscription.add(this.store.select("States").subscribe(states=>{
       this.products = states.products;
+      this.username = states.username;
     }))
-
     // Get the Products then show them on the table
     this.getProducts().then(()=>this.showProducts());
   }

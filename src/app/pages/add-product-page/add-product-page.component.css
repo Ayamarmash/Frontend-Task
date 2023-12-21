@@ -45,10 +45,10 @@
 
 input, select{
     width: 100%;
-    padding: 6px 6px 6px 10px;
+    padding: 10px;
     box-sizing: border-box;
     background-color: transparent;
-    border: 1px solid #8F939B;
+    border: 1px solid #E0E0E0;
     border-radius: 3px;
     color: #171E39;
     font-size: 0.8em;
@@ -68,7 +68,7 @@ input:focus{
     height: fit-content;
 }
 
-.disabled{
+.disabled-button{
     color: #5b5555 !important;
     background-color: #e5e5e5 !important;
     box-shadow: none !important;
