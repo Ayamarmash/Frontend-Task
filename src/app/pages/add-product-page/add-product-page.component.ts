@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
 import {ApiService} from "../../api/api.service";
 import {Subscription} from "rxjs";
@@ -9,21 +9,23 @@ import {Subscription} from "rxjs";
   styleUrl: './add-product-page.component.css'
 })
 export class AddProductPageComponent{
-  private storeSubscription: Subscription = new Subscription();
   isLoading = false;
   years = [2019,2020,2021,2022,2023];
   newProductForm = this.formBuilder.group({
     name: ['', [Validators.required, Validators.minLength(4)]],
     year: ['', Validators.required],
     price: ['', Validators.required],
-    cpu: ['', Validators.required],
-    hardDiskSize: ['', Validators.required],
+    cpu: [''],
+    hardDiskSize: [''],
   })
 
   constructor(private formBuilder: FormBuilder, private service: ApiService) {}
   onSubmit() {
     if (this.newProductForm.valid){
-      this.isLoading = !this.isLoading;
+      // Change the loading state to true, to start the loading progress bar
+      this.isLoading = true;
+
+      // Prepare the product obj that we will send in the API request
       let product = {
       name: this.newProductForm.value.name,
       data: {
@@ -33,9 +35,11 @@ export class AddProductPageComponent{
         "Hard disk size": this.newProductForm.value.hardDiskSize
       }
     }
+    // Call addNewProduct that sends a POST request and takes a new product obj
     this.service.addNewProduct(product)
         .then(()=>{
-          this.isLoading = !this.isLoading;
+          // Change the loading state to false, to stop the loading progress bar
+          this.isLoading = false;
           this.newProductForm.reset();
         })
     }

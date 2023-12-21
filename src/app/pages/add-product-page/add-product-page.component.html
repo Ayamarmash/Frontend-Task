@@ -1,38 +1,41 @@
 <div class="page">
-  <div class="product-modal">
+  <div class="modal product-modal">
     <div class="title">Add New Product</div>
     <form class="product-form" (ngSubmit)="onSubmit()" [formGroup]="newProductForm">
       <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
       <div class="form-fields">
         <div>
-          <label for="productName">Product Name</label>
-          <input id="productName" placeholder="Eg. iPhone 13" formControlName="name" required type="text">
+          <label for="productName">Product Name <span class="err">*</span></label>
+          <input id="productName" placeholder="eg. iPhone 13" formControlName="name" required type="text">
+          <div class="err" *ngIf="(newProductForm?.get('name')?.hasError('required')) && newProductForm?.get('name')?.touched">Name Required</div>
+          <div class="err" *ngIf="(newProductForm?.get('name')?.hasError('minlength')) && newProductForm?.get('name')?.touched && newProductForm?.get('name')?.dirty">Invalid Name</div>
         </div>
 
         <div>
-          <label for="productYear">Year</label>
+          <label for="productYear">Year <span class="err">*</span></label>
           <select id="productYear" name="options" formControlName="year" required>
             <option *ngFor="let year of years" value="{{year}}">{{year}}</option>
           </select>
+          <div class="err" *ngIf="(newProductForm?.get('year')?.hasError('required')) && newProductForm?.get('year')?.touched">Year Required</div>
         </div>
 
         <div>
-          <label for="productPrice">Price</label>
-          <input id="productPrice" placeholder="Eg. 1849.99" formControlName="price" required type="number">
+          <label for="productPrice">Price <span class="err">*</span></label>
+          <input id="productPrice" placeholder="eg. 1849.99" formControlName="price" required type="number">
+          <div class="err" *ngIf="(newProductForm?.get('price')?.hasError('required')) && newProductForm?.get('price')?.touched">Price Required</div>
         </div>
 
         <div>
           <label for="productDiskSize">CPU</label>
-          <input id="productDiskSize" placeholder="Eg. Intel Core i9" formControlName="cpu" required type="text">
+          <input id="productDiskSize" placeholder="eg. Intel Core i9" formControlName="cpu" type="text">
         </div>
 
         <div>
         <label for="hardDiskSize">Hard Disk Size</label>
-        <input id="hardDiskSize" placeholder="Eg. 1 TB" formControlName="hardDiskSize" required type="text">
+        <input id="hardDiskSize" placeholder="eg. 1 TB" formControlName="hardDiskSize" type="text">
       </div>
       </div>
-      <button class="submit-button" [ngClass]="{'disabled-button': newProductForm.invalid
-      }" [disabled]="newProductForm.invalid" type="submit">Submit</button>
+      <button class="submit-button" [ngClass]="{'disabled-button': newProductForm.invalid || isLoading}" [disabled]="newProductForm.invalid" type="submit">Submit</button>
     </form>
   </div>
 </div>

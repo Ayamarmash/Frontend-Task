@@ -6,7 +6,6 @@ import {Store} from "@ngrx/store";
 import {store} from "../../models/store.model";
 import {setProducts} from "../../shared/store/actions";
 import {Subscription} from "rxjs";
-import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-products-page',

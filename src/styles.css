@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+
 body, html {
   font-family: 'Poppins', sans-serif;
   padding: 0;
@@ -8,5 +9,47 @@ body, html {
   width: 100%;
   font-size: calc(0.6vw + 1.2vh);
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+h1{
+  color: #171E39;
+}
+
+button{
+  background-color: #171E39;
+  border: none;
+  font-size: 0.9em;
+  color: #E3EBFB;
+  border-radius: 3px;
+}
+
+input, select{
+  background-color: transparent;
+  border: 1px solid #E0E0E0;
+  border-radius: 3px;
+  color: #171E39;
+  font-size: 0.8em;
+  box-sizing: border-box;
+}
+
+label{
+  font-size: 0.8em;
+  color: #0F1730;
+}
+
+.disabled-button{
+  color: #5b5555 !important;
+  background-color: #e5e5e5 !important;
+  box-shadow: none !important;
+}
+
+.modal{
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background-color: white;
+  box-shadow: 0 10px 20px 0 #c9d0e7;
+  .title{
+    font-weight: 500;
+    color: #0F1730;
+  }
+}

@@ -2,26 +2,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 60px;
-    max-height: 100%;
+    height: 91%;
 }
 
 .product-modal{
-    display: flex;
-    flex-direction: column;
     align-items: start;
     width: 50em;
     height: 450px;
     padding: 52px 0 20px 0;
-    box-sizing: border-box;
-    background-color: white;
-    box-shadow: 0 10px 20px 0 #c9d0e7;
-
     .title{
         font-size: 1.6em;
         margin-left: 20px;
-        font-weight: 500;
-        color: #0F1730;
     }
 
     .product-form{
@@ -34,11 +25,6 @@
         .submit-button{
             width: 20%;
             padding: 10px;
-            background-color: #171E39;
-            border: none;
-            font-size: 0.9em;
-            color: #E3EBFB;
-            border-radius: 3px;
         }
     }
 }
@@ -46,37 +32,6 @@
 input, select{
     width: 100%;
     padding: 10px;
-    box-sizing: border-box;
-    background-color: transparent;
-    border: 1px solid #E0E0E0;
-    border-radius: 3px;
-    color: #171E39;
-    font-size: 0.8em;
-}
-
-input:focus{
-    border: 1px solid #2B78AE;
-    outline: none !important;
-}
-
-.err{
-    color: #ff7b7b;
-    font-size: 0.7em;
-    margin-top: 10px;
-    box-sizing: border-box;
-    width: fit-content;
-    height: fit-content;
-}
-
-.disabled-button{
-    color: #5b5555 !important;
-    background-color: #e5e5e5 !important;
-    box-shadow: none !important;
-}
-
-label{
-    font-size: 0.8em;
-    color: #0F1730;
 }
 
 .form-fields{
@@ -89,6 +44,7 @@ label{
     width: 100%;
     >*{
         width: 40%;
+        height: 50px;
         margin-left: 20px;
     }
 }
