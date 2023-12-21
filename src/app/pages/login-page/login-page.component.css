@@ -10,15 +10,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 22em;
-  height: 27em;
+  width: 20em;
+  height: 28em;
   padding: 80px 50px 20px 50px;
   box-sizing: border-box;
   min-width: fit-content;
   min-height: fit-content;
   border-radius: 12px;
-  background-color: #2D2E31;
-  box-shadow: 0 0 20px 1px #2D2E31;
+  background-color: #ffffff;
+  box-shadow: 0 10px 20px 0 #c9d0e7;
   >*{
     height: fit-content;
     width: fit-content;
@@ -27,7 +27,7 @@
   .title{
     font-size: 2.5em;
     font-weight: 500;
-    color: #EBEDFB;
+    color: #171E39;
   }
 
   .login-form{
@@ -43,13 +43,11 @@
     .login-button{
       width: 100%;
       padding: 10px;
-      background-color: transparent;
-      border: 1px solid #2B78AE;
+      background-color: #171E39;
+      border: none;
       font-size: 0.9em;
-      color: white;
-    }
-    .login-button:hover{
-      box-shadow: 0 0 5px 1px #2B78AE;
+      color: #E3EBFB;
+      border-radius: 3px;
     }
   }
 }
@@ -59,14 +57,14 @@ input{
   padding: 6px 6px 6px 10px;
   box-sizing: border-box;
   background-color: transparent;
-  border: none;
-  border-bottom: 1px solid white;
-  color: white;
+  border: 1px solid #8F939B;
+  border-radius: 3px;
+  color: #171E39;
   font-size: 0.8em;
 }
 
 input:focus{
-  border-bottom: 1px solid #2B78AE;
+  border: 1px solid #2B78AE;
   outline: none !important;
 }
 
@@ -81,6 +79,6 @@ input:focus{
 
 .disabled{
   color: #5b5555 !important;
-  border: 1px solid #5b5555 !important;
+  background-color: #e5e5e5 !important;
   box-shadow: none !important;
 }

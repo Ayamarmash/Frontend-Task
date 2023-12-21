@@ -11,7 +11,7 @@
         <input placeholder="Password" formControlName="password" required type="password">
         <div class="err" *ngIf="(loginForm?.get('password')?.hasError('required')) && loginForm?.get('password')?.touched">Password Required</div>
       </div>
-      <button class="login-button" [ngClass]="{'disabled': loginForm.invalid}" [disabled]="loginForm.invalid" type="submit">Login</button>
+      <button class="login-button" [ngClass]="{'disabled-button': loginForm.invalid}" [disabled]="loginForm.invalid" type="submit">Login</button>
     </form>
   </div>
 </div>

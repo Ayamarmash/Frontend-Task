@@ -1,8 +1,9 @@
 export type product = {
-    "id": number,
-    "name": string,
+    name: string | null | undefined;
     "data": {
-        "color": string,
-        "capacity": number
+        year: number |  string | null | undefined;
+        price: number | string | null | undefined;
+        "CPU model": string | null | undefined;
+        "Hard disk size": string | null | undefined;
     }
 }

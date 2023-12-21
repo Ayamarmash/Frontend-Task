@@ -12,32 +12,33 @@ import {Subscription} from "rxjs";
   styleUrl: './products-page.component.css'
 })
 export class ProductsPageComponent implements OnInit, OnDestroy{
-  private storeSubscription: Subscription = new Subscription();
-
   readonly Object = Object;
-  service: ApiService;
+
+  storeSubscription: Subscription = new Subscription();
   displayedColumns: string[] = ['name', 'data'];
   products : product[] = [];
   productsToShow: product[] = [];
   pageSize = 5;
   pageSizeOptions = [5, 10, 13];
-  isLoading!: boolean ;
+  isLoading = false ;
 
-  constructor(apiService: ApiService, private store: Store<{States: store}>) {
-    this.service= apiService;
-  }
+  constructor(private service: ApiService, private store: Store<{States: store}>) {}
 
   ngOnInit(){
+    // Subscribe to get the products whenever it's value changes in the store
     this.storeSubscription.add(this.store.select("States").subscribe(states=>{
-      this.isLoading = states.loading;
       this.products = states.products;
     }))
-    this.getProducts()
-        .then(()=>this.showProducts());
+
+    // Get the Products then show them on the table
+    this.getProducts().then(()=>this.showProducts());
   }
 
   async getProducts() {
-    this.store.dispatch(load());
+    // Change the loading state to true, to start the loading progress bar
+    this.isLoading = true;
+
+    // Call getProducts that sends a GET request and returns the products array, and store it in products variable
     let products = await this.service.getProducts()
       .then((data: any) => {
         return data;
@@ -45,20 +46,33 @@ export class ProductsPageComponent implements OnInit, OnDestroy{
       .catch((err: any) => {
         console.error('Error:', err);
       });
+
+    // Now dispatch setProducts action to set the products array in the store
+    // This step for the purpose of applying the ngrx, and would be helpful if we have another page that uses the products data
     this.store.dispatch(setProducts({products}));
-    this.store.dispatch(load());
+
+    // Change the loading state to false
+    this.isLoading = false;
   }
 
   onPageChange(event: PageEvent) {
+    // Change the page size according to the current selected page size
     this.pageSize = event.pageSize;
-    this.productsToShow = this.products?.slice(0, this.pageSize);
+
+    // Calculate the start & end index for the current shown products
+    let startIndex = event.pageIndex * this.pageSize;
+    let endIndex = startIndex + this.pageSize;
+
+    // Change the Shown products to match the current page and current page size
+    this.showProducts(startIndex, endIndex);
   }
 
-  showProducts(){
-      this.productsToShow = this.products?.slice(0, this.pageSize);
+  showProducts(startIndex = 0, endIndex = this.pageSize){
+    this.productsToShow = this.products?.slice(startIndex, endIndex);
   }
 
   ngOnDestroy(): void {
+    // Unsubscribe all subscriptions
     this.storeSubscription.unsubscribe();
   }
 }

@@ -4,14 +4,11 @@
 }
 .table-wrapper{
   height: fit-content;
-  max-height: 500px;
+  max-height: 450px;
   overflow: auto;
-}
-.item-img{
-  width: 100px;
-  height: 100px;
 }
 .wrapper{
   height: fit-content;
   width: 100%;
+  box-shadow: 0 10px 20px 0 #c9d0e7;
 }

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {product} from "../models/product.model";
 @Injectable({
   providedIn: 'root'
 })
@@ -17,8 +18,8 @@ export class ApiService {
     return await res;
   }
 
-  async addNewProduct(product: any){
-    const res = await fetch(`${this.baseURL}/products`,{
+  async addNewProduct(product:any){
+    const res = await fetch(`${this.baseURL}/objects`,{
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
