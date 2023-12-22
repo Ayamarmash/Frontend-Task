@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {RouterLink, RouterLinkActive} from "@angular/router";
 import {Store} from "@ngrx/store";
-import {logout} from "../../shared/store/actions";
+import {logout} from "../../store/actions";
 
 @Component({
   selector: 'app-navbar-component',

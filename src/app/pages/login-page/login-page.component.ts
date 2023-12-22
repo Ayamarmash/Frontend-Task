@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {Store} from "@ngrx/store";
-import {login} from "../../shared/store/actions";
+import {login} from "../../store/actions";
 
 @Component({
   selector: 'app-login-page',
