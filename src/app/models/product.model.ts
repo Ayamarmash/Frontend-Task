@@ -1,4 +1,4 @@
-export type product = {
+export type Product = {
     name: string | null | undefined;
     "data": {
         year: number |  string | null | undefined;

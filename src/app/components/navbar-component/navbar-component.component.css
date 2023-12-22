@@ -22,7 +22,7 @@
   .navbar-options{
     display: flex;
     justify-content: space-between;
-    width: 30%;
+    width: 15%;
     .option{
       text-decoration:none;
       color: inherit;

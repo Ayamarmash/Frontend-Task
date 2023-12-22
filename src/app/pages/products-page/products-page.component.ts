@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ApiService} from "../../api/api.service";
 import {PageEvent} from "@angular/material/paginator";
-import {product} from "../../models/product.model";
+import {Product} from "../../models/product.model";
 import {Store} from "@ngrx/store";
 import {store} from "../../models/store.model";
 import {setProducts} from "../../shared/store/actions";
@@ -17,8 +17,8 @@ export class ProductsPageComponent implements OnInit, OnDestroy{
 
   storeSubscription: Subscription = new Subscription();
   displayedColumns: string[] = ['name', 'data'];
-  products : product[] = [];
-  productsToShow: product[] = [];
+  products : Product[] = [];
+  productsToShow: Product[] = [];
   pageSize = 5;
   pageSizeOptions = [5, 10, 13];
   isLoading = false ;

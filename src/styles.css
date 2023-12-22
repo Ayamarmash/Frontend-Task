@@ -68,3 +68,8 @@ input:focus{
   width: fit-content;
   height: fit-content;
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+  background: #f1f1f1;
+}

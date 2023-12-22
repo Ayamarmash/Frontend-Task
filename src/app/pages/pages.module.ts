@@ -11,6 +11,7 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {RouterLink, RouterOutlet} from "@angular/router";
 import {NavbarComponentComponent} from "../components/navbar-component/navbar-component.component";
 import {MainPageComponent} from "./main-page/main-page.component";
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 @NgModule({
   declarations: [ProductsPageComponent, AddProductPageComponent, LoginPageComponent, MainPageComponent],
@@ -27,7 +28,8 @@ import {MainPageComponent} from "./main-page/main-page.component";
         MatProgressBarModule,
         RouterLink,
         NavbarComponentComponent,
-        RouterOutlet
+        RouterOutlet,
+        MatTooltipModule
     ]
 })
 export class PagesModule { }

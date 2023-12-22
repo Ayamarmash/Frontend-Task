@@ -1,7 +1,7 @@
-import {product} from "./product.model";
+import {Product} from "./product.model";
 
 export type store = {
-    products: product[],
+    products: Product[],
     isLoggedIn: boolean,
     username: string,
 }
