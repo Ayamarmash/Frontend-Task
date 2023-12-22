@@ -20,7 +20,7 @@ export class ProductsPageComponent implements OnInit, OnDestroy{
   products : Product[] = [];
   productsToShow: Product[] = [];
   pageSize = 5;
-  pageSizeOptions = [5, 10, 13];
+  pageSizeOptions = [5, 10, 15];
   isLoading = false ;
   username = "";
   constructor(private service: ApiService, private store: Store<{States: store}>) {}
