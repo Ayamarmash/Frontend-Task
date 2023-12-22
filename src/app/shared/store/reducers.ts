@@ -1,23 +1,16 @@
 import {createReducer, on} from "@ngrx/store";
-import {logIn, logOut, setProducts} from "./actions";
-import {States} from "./store";
+import {login, logout} from "./actions";
+import {initialStates} from "./initialStates";
 
-const changeLoadingState= createReducer(States,
-    on(setProducts, (state, {products})=>{
-        return {
-            ...state,
-            products: products,
-        }
-    }),
-    on(logIn, (state, {username})=>{
-        console.log(username)
+const loginReducer= createReducer(initialStates,
+    on(login, (state, {username})=>{
         return {
             ...state,
             username: username,
             isLoggedIn: true,
         }
     }),
-    on(logOut, (state)=>{
+    on(logout, (state)=>{
         return {
             ...state,
             username: "",
@@ -27,5 +20,5 @@ const changeLoadingState= createReducer(States,
 )
 
 export function Reducer(state:any, action:any){
-    return changeLoadingState(state, action);
+    return loginReducer(state, action);
 }

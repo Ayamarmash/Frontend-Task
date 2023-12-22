@@ -3,8 +3,6 @@ import {ApiService} from "../../api/api.service";
 import {PageEvent} from "@angular/material/paginator";
 import {Product} from "../../models/product.model";
 import {Store} from "@ngrx/store";
-import {store} from "../../models/store.model";
-import {setProducts} from "../../shared/store/actions";
 import {Subscription} from "rxjs";
 
 @Component({
@@ -14,7 +12,6 @@ import {Subscription} from "rxjs";
 })
 export class ProductsPageComponent implements OnInit, OnDestroy{
   readonly Object = Object;
-
   storeSubscription: Subscription = new Subscription();
   displayedColumns: string[] = ['name', 'data'];
   products : Product[] = [];
@@ -23,15 +20,14 @@ export class ProductsPageComponent implements OnInit, OnDestroy{
   pageSizeOptions = [5, 10, 15];
   isLoading = false ;
   username = "";
-  constructor(private service: ApiService, private store: Store<{States: store}>) {}
+  constructor(private service: ApiService, private store: Store<{States: any}>) {}
 
   ngOnInit(){
-    // Subscribe to get the products whenever it's value changes in the store
+    // Subscribe to get the username
     this.storeSubscription.add(this.store.select("States").subscribe(states=>{
-      this.products = states.products;
       this.username = states.username;
     }))
-    // Get the Products then show them on the table
+    // Get the Products then show them in the table
     this.getProducts().then(()=>this.showProducts());
   }
 
@@ -40,18 +36,13 @@ export class ProductsPageComponent implements OnInit, OnDestroy{
     this.isLoading = true;
 
     // Call getProducts that sends a GET request and returns the products array, and store it in products variable
-    let products = await this.service.getProducts()
+    this.products = await this.service.getProducts()
       .then((data: any) => {
         return data;
       })
       .catch((err: any) => {
         console.error('Error:', err);
       });
-
-    // Now dispatch setProducts action to set the products array in the store
-    // This step for the purpose of applying the ngrx, and would be helpful if we have another page that uses the products data
-    this.store.dispatch(setProducts({products}));
-
     // Change the loading state to false
     this.isLoading = false;
   }
@@ -73,7 +64,6 @@ export class ProductsPageComponent implements OnInit, OnDestroy{
   }
 
   ngOnDestroy(): void {
-    // Unsubscribe all subscriptions
     this.storeSubscription.unsubscribe();
   }
 }

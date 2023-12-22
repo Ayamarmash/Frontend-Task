@@ -13,6 +13,7 @@ body, html {
 
 h1{
   color: #171E39;
+  font-size: 1.5em;
 }
 
 button{
@@ -72,4 +73,10 @@ input:focus{
 ::-webkit-scrollbar {
   width: 10px;
   background: #f1f1f1;
+}
+
+.page{
+  box-sizing: border-box;
+  height: 91%;
+  width: 100%;
 }

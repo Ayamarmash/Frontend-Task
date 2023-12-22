@@ -1,6 +1,7 @@
 <div class="page">
   <h1>Welcome, {{username}}</h1>
-  <div class="wrapper">
+  <div class="products">
+    <div class="wrapper">
     <div class="table-wrapper">
       <table mat-table [dataSource]="productsToShow">
         <ng-container matColumnDef="name">
@@ -15,8 +16,8 @@
                 {{ element.data[key]}}
               </div>
             </div>
-            <div *ngIf="!element.data" class="unavailable tag">
-              No Information Available
+            <div *ngIf="!element.data" class="no-info tag">
+              No Available Information
             </div>
           </td>
         </ng-container>
@@ -33,5 +34,6 @@
                    class="paginator">
   </mat-paginator>
   </div>
-  <button class="new-product-button" routerLink="/main/new-product">New Product</button>
+    <button class="new-product-button" routerLink="/main/new-product">New Product</button>
+  </div>
 </div>

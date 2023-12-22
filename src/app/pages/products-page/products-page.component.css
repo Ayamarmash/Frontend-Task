@@ -1,6 +1,5 @@
 .page{
-  margin: 60px;
-  height: 82%;
+  padding: 50px;
 }
 
 th{
@@ -49,7 +48,14 @@ td{
   color: white;
   background-color: rgba(43, 120, 174, 0.49);
 }
-.unavailable{
+
+.no-info{
   background-color: rgba(210, 220, 229, 0.49) !important;
   color: #0F1730;
+}
+
+.products{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }

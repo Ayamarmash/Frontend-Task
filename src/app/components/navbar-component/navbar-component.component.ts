@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import {RouterLink, RouterLinkActive} from "@angular/router";
-import {store} from "../../models/store.model";
 import {Store} from "@ngrx/store";
-import {logOut} from "../../shared/store/actions";
+import {logout} from "../../shared/store/actions";
 
 @Component({
   selector: 'app-navbar-component',
@@ -15,9 +14,9 @@ import {logOut} from "../../shared/store/actions";
   styleUrl: './navbar-component.component.css'
 })
 export class NavbarComponentComponent {
-  constructor(private store: Store<{States: store}>) {
+  constructor(private store: Store<{States: any}>) {
   }
   onLogoutClicked() {
-    this.store.dispatch(logOut())
+    this.store.dispatch(logout())
   }
 }

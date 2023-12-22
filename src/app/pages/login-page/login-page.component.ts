@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {Store} from "@ngrx/store";
-import {store} from "../../models/store.model";
-import {logIn} from "../../shared/store/actions";
+import {login} from "../../shared/store/actions";
 
 @Component({
   selector: 'app-login-page',
@@ -15,15 +14,15 @@ export class LoginPageComponent{
     username: ['', [Validators.required, Validators.minLength(3)]],
     password: ['', [Validators.required, Validators.minLength(4)]],
   })
-  constructor(private formBuilder: FormBuilder, private router: Router, private store: Store<{States: store}>) {}
+  constructor(private formBuilder: FormBuilder, private router: Router, private store: Store<{States: any}>) {}
 
   onSubmit() {
     // First check if the form values are valid (according to the validators that were provided later)
     if (this.loginForm?.valid) {
-      // If valid, dispatch logIn Action to store the username in our store, so all components can reach it
+      // If valid, dispatch logIn Action to store the username, so all components can reach it
       let username = this.loginForm.value.username
       // @ts-ignore
-      this.store.dispatch(logIn({username}))
+      this.store.dispatch(login({username}))
       // after login successfully, navigate to the products page
       this.router.navigate(['main/products'])
     } else alert("Check values")

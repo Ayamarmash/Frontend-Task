@@ -18,6 +18,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
         RouterModule,
         PagesModule,
         [RouterModule.forRoot(routes)],
+      // set up the ngrx store
         StoreModule.forRoot({States: Reducer})
     ],
     bootstrap: [AppComponent]

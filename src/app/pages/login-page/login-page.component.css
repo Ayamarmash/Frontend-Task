@@ -2,8 +2,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 91%;
-  width: 100%;
 }
 
 .login-modal{
